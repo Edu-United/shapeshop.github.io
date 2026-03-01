@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShapeShop | 3D Printing Pune</title>
+
+  <style>
+    :root {
+      --dark-bg: #050a14;
+      --accent-blue: #007aff;
+      --accent-light: #63b3ff;
+      --text-main: #ffffff;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --insta-grad: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding-top: 60px;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: 92%;
+      max-width: 900px;
+      text-align: center;
+      padding-bottom: 8rem;
+    }
+
+    /* PREMIUM LOGO */
+    .brand-title {
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      letter-spacing: -0.2rem;
+      margin: 0;
+      background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
+
+    @keyframes shine {
+      0% { filter: brightness(1) drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+      50% { filter: brightness(1.3) drop-shadow(0 10px 25px rgba(99, 179, 255, 0.4)); }
+      100% { filter: brightness(1) drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+    }
+
+    .subline {
+      margin: 0.5rem auto 3.5rem;
+      font-size: 1rem;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      opacity: 0.6;
+      font-weight: 500;
+    }
+
+    hr { border: 0; height: 1px; background: var(--glass-border); margin: 4rem 0; }
+
+    /* STEPS */
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+      text-align: left;
+    }
+
+    .step-card {
+      background: var(--glass);
+      padding: 2rem;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    .step-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+    .step-card h3 { color: var(--accent-light); margin-top: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1rem; }
+    .step-card p { margin: 0; font-size: 1rem; opacity: 0.9; font-weight: 400; }
+
+    .links { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem; }
+    .link {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border: 1px solid var(--glass-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .link:hover { background: #fff; color: #000; }
+
+    /* GALLERY */
+    .section-header { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .img-box {
+      aspect-ratio: 1 / 1;
+      background: #020617;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .img-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+    .img-box:hover { transform: scale(1.03); border-color: var(--accent-light); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+    /* COLORS TABLE */
+    .color-table {
+      margin: 2rem auto;
+      width: 100%; max-width: 450px;
+      background: var(--glass);
+      border-radius: 24px;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+    .color-table td { padding: 1.2rem; border-bottom: 1px solid var(--glass-border); text-align: left; }
+    .color-cell { display: flex; align-items: center; gap: 15px; padding-left: 1.5rem; font-weight: 500; }
+    .color-dot { width: 14px; height: 14px; border-radius: 50%; }
+
+    .red { background: #e11d48; }
+    .orange { background: #f59e0b; }
+    .white { background: #f8fafc; }
+    .black { background: #0f172a; border: 1px solid #334155; }
+
+    /* INSTAGRAM SECTION (PROFESSIONAL & CATCHY) */
+    .footer-cta {
+      margin-top: 6rem;
+      background: var(--glass);
+      padding: 4rem 2rem;
+      border-radius: 40px;
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .insta-card {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0,0,0,0.3);
+        padding: 2rem 3rem;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-top: 2rem;
+    }
+
+    .instagram-btn {
+      display: inline-block;
+      padding: 1.2rem 3.5rem;
+      background: var(--insta-grad);
+      color: #fff;
+      border-radius: 100px;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(220, 39, 67, 0.2);
+    }
+
+    .instagram-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(220, 39, 67, 0.4);
+    }
+
+    .handle {
+        margin-top: 1rem;
+        font-family: monospace;
+        opacity: 0.5;
+        letter-spacing: 2px;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(2, 6, 23, 0.95);
+      z-index: 1000;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(15px);
+    }
+    #lightbox img { max-width: 90%; max-height: 80vh; object-fit: contain; }
+
+    .highlight-box {
+      margin: 4rem auto;
+      padding: 2rem;
+      border-radius: 24px;
+      background: rgba(255, 59, 48, 0.05);
+      border: 1px solid rgba(255, 59, 48, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+  <h1 class="brand-title">ShapeShop</h1>
+  <p class="subline">Precision 3D Fabrication • Pune</p>
+
+  <div class="steps-container">
+    <div class="step-card">
+      <h3>01. Find a Link</h3>
+      <p>Pick a 3D model from these premium libraries:</p>
+      <div class="links">
+        <a class="link" href="https://www.printables.com/" target="_blank">Printables</a>
+        <a class="link" href="https://makerworld.com/en" target="_blank">MakerWorld</a>
+        <a class="link" href="https://makeitreal.eufymake.com/" target="_blank">EufyMake</a>
+      </div>
+    </div>
+    <div class="step-card">
+      <h3>02. Message Us</h3>
+      <p>Send the link on Instagram. If you want a <strong>Custom Model</strong> designed from scratch, just DM your requirements!</p>
+    </div>
+    <div class="step-card">
+      <h3>03. Pickup/Collection</h3>
+      <p>Once printed, all details regarding <strong>collection or delivery</strong> will be decided directly with you in our DMs.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 class="section-header">Portfolio</h2>
+  <div class="gallery">
+    <div class="img-box"><img src="image1.jpeg" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image2.jpeg" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image6.jpeg" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image7.jpeg" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image8.jpeg" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image15.jpeg" onclick="openLightbox(this.src)"></div>
+    
+    <div class="img-box"><img src="image19.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image20.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image21.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image22.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image23.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image24.png" onclick="openLightbox(this.src)"></div>
+    <div class="img-box"><img src="image25.png" onclick="openLightbox(this.src)"></div>
+  </div>
+
+  <div class="highlight-box">
+    📍 Status: <strong> Pune City Only</strong><br>
+    <span style="font-size: 0.9rem; opacity: 0.6;">We currently only fulfill orders for the Pune metropolitan area.</span>
+  </div>
+
+  <h2 class="section-header">Filament Palette</h2>
+  <table class="color-table">
+    <tbody>
+      <tr><td><div class="color-cell"><span class="color-dot red"></span> Flame Red</div></td></tr>
+      <tr><td><div class="color-cell"><span class="color-dot orange"></span> Sunset Orange</div></td></tr>
+      <tr><td><div class="color-cell"><span class="color-dot white"></span> Arctic White</div></td></tr>
+      <tr><td><div class="color-cell"><span class="color-dot black"></span> Stealth Black</div></td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer-cta">
+    <h3 style="font-size: 2rem; margin: 0;">Ready to start a project?</h3>
+    <p style="opacity: 0.7; margin-top: 10px;">Send your model link or custom request below.</p>
+    
+    <div class="insta-card">
+        <a class="instagram-btn" href="https://www.instagram.com/shapeshop.co" target="_blank">
+          DM ON INSTAGRAM
+        </a>
+        <span class="handle">@SHAPESHOP.CO</span>
+    </div>
+  </div>
+
+</main>
+
+<div id="lightbox" onclick="this.style.display='none'">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+</script>
+
+</body>
+</html>
